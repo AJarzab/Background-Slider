@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Muli";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,11 +13,11 @@ body {
   margin: 0;
   background-position: center;
   background-size: cover;
-  transition: 0.4s;
+  transition: 0.5s ease-in;
 }
 
 body::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -45,7 +44,7 @@ body::before {
   position: absolute;
   top: -15vh;
   left: -15vw;
-  transition: 0.4 ease;
+  transition: 0.5s ease-in;
   z-index: 1;
 }
 
@@ -75,4 +74,23 @@ body::before {
 
 .right-arrow {
   right: calc(15vw - 65px);
+}
+
+.dot-slider {
+  position: absolute;
+  bottom: 12vh;
+}
+
+.dot {
+  position: relative;
+  bottom: 10%;
+  height: 15px;
+  width: 15px;
+  background-color: #aaa;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.active {
+  background-color: #fff;
 }

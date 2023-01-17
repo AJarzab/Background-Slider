@@ -1,5 +1,6 @@
 const body = document.body
 const slides = document.querySelectorAll('.slide')
+const dots = document.querySelectorAll('.dot')
 const leftBtn = document.getElementById('left')
 const rightBtn = document.getElementById('right')
 
@@ -13,8 +14,10 @@ function setBgToBody() {
 
 function setActiveSlide() {
     slides.forEach(slide => slide.classList.remove('active'))
+    dots.forEach(dot => dot.classList.remove('active'))
 
     slides[activeSlide].classList.add('active')
+    dots[activeSlide].classList.add('active')
 }
 
 rightBtn.addEventListener('click', () => {
@@ -29,8 +32,16 @@ rightBtn.addEventListener('click', () => {
 leftBtn.addEventListener('click', () => {
     activeSlide--
     if (activeSlide < 0) {
-        activeSlide = slides.length - 1
-    }
+        activeSlide = slides.length - 1    }
     setBgToBody()
     setActiveSlide()
 })
+
+function autoSlider() {
+    setTimeout(autoSlider, 5000)
+    setBgToBody()
+    setActiveSlide()
+    activeSlide++
+}
+
+autoSlider()
